@@ -1,0 +1,16 @@
+@mixin background-settings($bg-image, $bg-position, $bg-repeat) {
+  background-image: $bg-image;
+  background-position: $bg-position;
+  background-repeat: $bg-repeat;
+  @content;
+}
+
+@mixin flexbox-settings($display, $justify, $align) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin no-margin-padding {
+    margin: 0;
+    padding: 0;
+  }
