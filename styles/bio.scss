@@ -4,17 +4,6 @@
 @use "./partials/mixins" as *;
 @use "./partials/typography" as *;
 
-// @mixin tablet {
-//   @media screen and (min-width: 768px) {
-//     @content;
-//   }
-// }
-
-// @mixin desktop {
-//   @media screen and (min-width: 1280px) {
-//     @content;
-//   }
-// }
 
 // .article {
 //   background-color: #eeeeee;
@@ -49,56 +38,77 @@
 .nav {
   background-color: $pry-color-dark;
   width: 100%;
-  border: 5px solid blue;
   @include flexbox-settings(center, center) {
     flex-flow: column nowrap;
+    @include tablet {
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+    }
   }
   &__logo {
     text-decoration: none;
-    color: $pry-color-shade;
+    color: $pry-color-light;
+    margin: 1rem 0 0.02rem;
     @include mobile-header-font {
       font-weight: 200;
       font-size: 2rem;
     }
-    margin: 1rem 0 0.02rem;
+    @include tablet {
+      font-size: 1.5rem;
+      margin: 1.5rem 4rem;
+    }
   }
   &__list {
     list-style: none;
-
     @include flexbox-settings(space-between, center);
     width: 100%;
-    padding: 0;
-    margin-bottom: 0;
+    @include no-margin-padding;
+    @include tablet {
+      justify-content: flex-start;
+      width: 40%;
+    }
   }
   &__list-item {
     width: 100%;
     @include flexbox-settings(center, center);
+    @include tablet {
+      justify-content: flex-start;
+      @include no-margin-padding;
+    }
   }
   &__link {
-    padding-bottom: 0.5rem;
-    border-bottom: 4px solid red;
+    padding: 1.5rem 0 0.8rem;
     width: 100%;
     text-align: center;
     text-decoration: none;
     @include mobile-copy-font {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
     }
     color: $sec-color-shade;
+    transition: font-weight 0.5s;
+    border-bottom: 4px solid $pry-color-dark;
+    @include tablet {
+      padding: 1.5rem 0 0.8rem;
+    }
   }
   &__link:hover,
   &__link:active {
     border-bottom: 4px solid $pry-color-light;
     font-weight: bold;
+    color: $pry-color-light;
   }
 }
 
 .hero {
-  @include background-settings(url(../assets/images/hero-bio.jpg),cover,no-repeat);
+  @include background-settings(
+    url(../assets/images/hero-bio.jpg),
+    cover,
+    no-repeat
+  );
   height: 19.5rem;
 
-
   &__shade {
-    background-color: rgba(50, 50, 50,0.5);
+    background-color: rgba(50, 50, 50, 0.5);
     width: 100%;
     height: 100%;
     @include flexbox-settings(flex-start, center);
@@ -110,23 +120,124 @@
   }
 }
 
-
 .band-info {
-  padding: 1rem;
-  color: black;
-}
-.band-info__title {
-  padding-top: .1.5rem;
-  color: $pry-color-light;
+  padding: 0 1rem;
+  color: $pry-color-dark;
 
+  &__title {
+    padding: 1.5rem 0 1rem;
+    margin: 0;
+    @include mobile-header-font;
+  }
+  &__container {
+    height: 15.5rem;
+    width: 100%;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+  &__text {
+    padding: 1rem 0 0;
+    margin: 0;
+    @include mobile-copy-font {
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.8rem;
+    }
+  }
 }
-.band-info__container {
+.article {
+  &__title {
+    @include mobile-subheader-font;
+  }
+  &__text {
+    @include mobile-copy-font;
+  }
+}
+
+.photo-gallery {
+  background-color: $sec-color-light;
+  @extend .band-info;
+
+  &__title {
+    @extend .band-info__title;
+    width: 100%;
+  }
+  &__container {
+    @include flexbox-settings(space-evenly, center) {
+      flex-flow: column nowrap;
+    }
+    @include no-margin-padding;
+  }
+  &__frame {
+    @extend .band-info__container;
+    padding-bottom: 1.1rem;
+  }
+  &__img {
+    @extend .band-info__img;
+  }
+}
+
+.footer-item {
+  @extend .band-info;
+  background-color: $pry-color-dark;
   color: $pry-color-light;
+  padding-bottom: 2rem;
+  &__container {
+    margin-top: 3rem;
+  }
+  &__logo {
+    @extend .nav__logo;
+  }
 }
-.band-info__img{
-  color: $pry-color-light;
+.contact-info {
+  @include flexbox-settings(space-evenly, flex-start) {
+    flex-flow: column nowrap;
+  }
 }
-.band-info__text {
-  color: $pry-color-light;
+.social-media {
+  @extend .contact-info;
+  width: 40%;
+  height: 70%;
+
+  &__title {
+    @extend .band-info__title;
+  }
+
+  &__icons {
+    @include flexbox-settings(space-between, center);
+    width: 70%;
+  }
+  &__img {
+    min-width: 2.4rem;
+    &-sm {
+      min-width: 1.5rem;
+    }
+  }
 }
-       
+
+.mgt {
+  @extend .contact-info;
+  &__container {
+    margin: 1.4rem 0;
+  }
+  &__address {
+    @include mobile-copy-font;
+    @include no-margin-padding;
+    // border: red solid 5px;
+  }
+  &__name {
+    @extend .mgt__address;
+    font-weight: 600;
+  }
+  &__email {
+    @extend .mgt__container;
+    @include mobile-copy-font;
+    text-decoration: none;
+    color: $pry-color-light;
+  }
+}
+.copyright {
+  font-size: 0.9rem;
+}
