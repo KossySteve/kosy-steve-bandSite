@@ -1,0 +1,132 @@
+@use "./partials/global" as *;
+@use "./partials/colors" as *;
+@use "./partials/breakpoints" as *;
+@use "./partials/mixins" as *;
+@use "./partials/typography" as *;
+
+// @mixin tablet {
+//   @media screen and (min-width: 768px) {
+//     @content;
+//   }
+// }
+
+// @mixin desktop {
+//   @media screen and (min-width: 1280px) {
+//     @content;
+//   }
+// }
+
+// .article {
+//   background-color: #eeeeee;
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+//   border-radius: 5px;
+//   margin: 2rem;
+//   @include tablet {
+//     margin: 1rem;
+//     width: 100%;
+//   }
+
+//   @include desktop {
+//     margin: 1rem;
+//     width: 30%;
+//   }
+
+//   &__title {
+//     margin: 0;
+//     padding: 1rem;
+//     border-bottom: 1px dashed #555555;
+//     text-align: center;
+//   }
+
+//   &__content {
+//     height: 10rem;
+//     padding: 1rem;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
+// }
+.nav {
+  background-color: $pry-color-dark;
+  width: 100%;
+  border: 5px solid blue;
+  @include flexbox-settings(center, center) {
+    flex-flow: column nowrap;
+  }
+  &__logo {
+    text-decoration: none;
+    color: $pry-color-shade;
+    @include mobile-header-font {
+      font-weight: 200;
+      font-size: 2rem;
+    }
+    margin: 1rem 0 0.02rem;
+  }
+  &__list {
+    list-style: none;
+
+    @include flexbox-settings(space-between, center);
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  &__list-item {
+    width: 100%;
+    @include flexbox-settings(center, center);
+  }
+  &__link {
+    padding-bottom: 0.5rem;
+    border-bottom: 4px solid red;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    @include mobile-copy-font {
+      font-size: 0.95rem;
+    }
+    color: $sec-color-shade;
+  }
+  &__link:hover,
+  &__link:active {
+    border-bottom: 4px solid $pry-color-light;
+    font-weight: bold;
+  }
+}
+
+.hero {
+  @include background-settings(url(../assets/images/hero-bio.jpg),cover,no-repeat);
+  height: 19.5rem;
+
+
+  &__shade {
+    background-color: rgba(50, 50, 50,0.5);
+    width: 100%;
+    height: 100%;
+    @include flexbox-settings(flex-start, center);
+  }
+  &__title {
+    @include no-margin-padding;
+    @include mobile-header-font;
+    padding-left: 1rem;
+  }
+}
+
+
+.band-info {
+  padding: 1rem;
+  color: black;
+}
+.band-info__title {
+  padding-top: .1.5rem;
+  color: $pry-color-light;
+
+}
+.band-info__container {
+  color: $pry-color-light;
+}
+.band-info__img{
+  color: $pry-color-light;
+}
+.band-info__text {
+  color: $pry-color-light;
+}
+       

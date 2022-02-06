@@ -1,16 +1,20 @@
-@mixin background-settings($bg-image, $bg-position, $bg-repeat) {
+
+@mixin background-settings($bg-image, $bg-size, $bg-repeat) {
   background-image: $bg-image;
-  background-position: $bg-position;
+  background-size: $bg-size;
   background-repeat: $bg-repeat;
   @content;
 }
 
-@mixin flexbox-settings($display, $justify, $align) {
-  display: $display;
+@mixin flexbox-settings($justify, $align-item) {
+  display: flex;
   justify-content: $justify;
-  align-items: $align;
+  align-items: $align-item;
+  @content;
 }
+
 @mixin no-margin-padding {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+}
+

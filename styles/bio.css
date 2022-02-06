@@ -1,0 +1,123 @@
+body {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("../assets/Font/Alternative/AvenirNextLTPro.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Verdana";
+  src: url("../assets/Font/Alternative/AvenirNextLTProBold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Verdana";
+  src: url("../assets/Font/Alternative/AvenirNextLTProDemi.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Verdana";
+  src: url("../assets/Font/Alternative/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 400;
+}
+.nav {
+  background-color: #323232;
+  width: 100%;
+  border: 5px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+.nav__logo {
+  text-decoration: none;
+  color: #afafaf;
+  font-family: "Verdana";
+  font-weight: 700;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  font-weight: 200;
+  font-size: 2rem;
+  margin: 1rem 0 0.02rem;
+}
+.nav__list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0;
+}
+.nav__list-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav__link {
+  padding-bottom: 0.5rem;
+  border-bottom: 4px solid red;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Verdana";
+  font-weight: 400;
+  line-height: 1.125rem;
+  font-size: 0.8rem;
+  font-size: 0.95rem;
+  color: #e1e1e1;
+}
+.nav__link:hover, .nav__link:active {
+  border-bottom: 4px solid #ffffff;
+  font-weight: bold;
+}
+
+.hero {
+  background-image: url(../assets/images/hero-bio.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 19.5rem;
+}
+.hero__shade {
+  background-color: rgba(50, 50, 50, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.hero__title {
+  margin: 0;
+  padding: 0;
+  font-family: "Verdana";
+  font-weight: 700;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+}
+
+.band-info {
+  padding: 1rem;
+  color: black;
+}
+
+.band-info__title {
+  padding-top: 0.1 0.5rem;
+  color: #ffffff;
+}
+
+.band-info__container {
+  color: #ffffff;
+}
+
+.band-info__img {
+  color: #ffffff;
+}
+
+.band-info__text {
+  color: #ffffff;
+}/*# sourceMappingURL=bio.css.map */
