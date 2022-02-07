@@ -4,37 +4,6 @@
 @use "./partials/mixins" as *;
 @use "./partials/typography" as *;
 
-
-// .article {
-//   background-color: #eeeeee;
-//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-//   border-radius: 5px;
-//   margin: 2rem;
-//   @include tablet {
-//     margin: 1rem;
-//     width: 100%;
-//   }
-
-//   @include desktop {
-//     margin: 1rem;
-//     width: 30%;
-//   }
-
-//   &__title {
-//     margin: 0;
-//     padding: 1rem;
-//     border-bottom: 1px dashed #555555;
-//     text-align: center;
-//   }
-
-//   &__content {
-//     height: 10rem;
-//     padding: 1rem;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//   }
-// }
 .nav {
   background-color: $pry-color-dark;
   width: 100%;
@@ -55,31 +24,35 @@
     }
     @include tablet {
       font-size: 1.5rem;
-      margin: 1.5rem 4rem;
+      margin: 0 0 0 3rem;
+    }
+    @include desktop {
+      font-size: 1.8rem;
+      margin: 1.5rem 0 1.5rem 10rem;
     }
   }
   &__list {
     list-style: none;
     @include flexbox-settings(space-between, center);
-    width: 100%;
     @include no-margin-padding;
     @include tablet {
-      justify-content: flex-start;
-      width: 40%;
+      // border: red 5px solid;
+      justify-content: space-evenly;
+      width: 22rem;
     }
   }
   &__list-item {
-    width: 100%;
     @include flexbox-settings(center, center);
     @include tablet {
       justify-content: flex-start;
-      @include no-margin-padding;
+      // border: blue 5px solid;
     }
   }
   &__link {
     padding: 1.5rem 0 0.8rem;
-    width: 100%;
-    text-align: center;
+    width: 50vw;
+    //text-align: center;
+    @include flexbox-settings(center, center);
     text-decoration: none;
     @include mobile-copy-font {
       font-size: 1.1rem;
@@ -88,7 +61,12 @@
     transition: font-weight 0.5s;
     border-bottom: 4px solid $pry-color-dark;
     @include tablet {
-      padding: 1.5rem 0 0.8rem;
+      padding: 2rem 0;
+      width: 100%;
+      font-size: 1rem;
+    }
+    @include desktop {
+      padding: 2.5rem 0;
     }
   }
   &__link:hover,
@@ -106,6 +84,12 @@
     no-repeat
   );
   height: 19.5rem;
+  @include tablet {
+    height: 30.5rem;
+  }
+  @include desktop {
+    height: 50rem;
+  }
 
   &__shade {
     background-color: rgba(50, 50, 50, 0.5);
@@ -117,21 +101,57 @@
     @include no-margin-padding;
     @include mobile-header-font;
     padding-left: 1rem;
+
+    @include tablet {
+      @include desktop-section-header-font;
+      padding-left: 3rem;
+    }
+    @include desktop {
+      font-size: 4rem;
+      padding-left: 12rem;
+    }
   }
 }
 
 .band-info {
   padding: 0 1rem;
   color: $pry-color-dark;
-
+  @include tablet {
+    padding: 0 2.5rem;
+  }
+  @include desktop {
+    padding: 0 10rem;
+  }
   &__title {
     padding: 1.5rem 0 1rem;
     margin: 0;
     @include mobile-header-font;
+    @include tablet {
+      @include desktop-header-font;
+    }
+    @include desktop {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+    }
   }
   &__container {
+    width: 100%;
+
+    @include tablet {
+      width: 81%;
+      margin: auto;
+    }
+  }
+  &__frame {
     height: 15.5rem;
     width: 100%;
+    @include tablet {
+      height: 19rem;
+      margin: auto;
+    }
+    @include desktop {
+      height: 38rem;
+    }
   }
   &__img {
     width: 100%;
@@ -145,14 +165,36 @@
       font-size: 1rem;
       line-height: 1.8rem;
     }
+    @include desktop {
+      @include desktop-subheader-font;
+    }
   }
 }
 .article {
   &__title {
     @include mobile-subheader-font;
+    @include tablet {
+      @include desktop-subheader-font;
+    }
+  }
+  &__container {
+    @include tablet {
+      @include flexbox-settings(space-between, flex-start);
+      flex-flow: row wrap;
+    }
   }
   &__text {
     @include mobile-copy-font;
+    @include no-margin-padding;
+    @include tablet {
+      @include flexbox-settings(space-between, center);
+      @include desktop-copy;
+      width: 48%;
+    }
+    @include desktop {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
   }
 }
 
@@ -169,10 +211,17 @@
       flex-flow: column nowrap;
     }
     @include no-margin-padding;
+    @include tablet {
+      @include flexbox-settings(space-between, center);
+      flex-flow: row wrap;
+    }
   }
   &__frame {
-    @extend .band-info__container;
+    width: 100%;
     padding-bottom: 1.1rem;
+    @include tablet {
+      width: 31.5%;
+    }
   }
   &__img {
     @extend .band-info__img;
@@ -184,11 +233,26 @@
   background-color: $pry-color-dark;
   color: $pry-color-light;
   padding-bottom: 2rem;
+  padding-top: 1rem;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   &__container {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
   &__logo {
     @extend .nav__logo;
+    @include tablet {
+      position: absolute;
+      bottom: 20.5rem;
+      right: 2.5rem;
+    }
+    @include desktop {
+      position: absolute;
+      bottom: 21.5rem;
+      right: 10rem;
+    }
   }
 }
 .contact-info {
@@ -200,44 +264,110 @@
   @extend .contact-info;
   width: 40%;
   height: 70%;
+  @include tablet {
+    @include flexbox-settings(space-between, center);
+    flex-flow: row nowrap;
+    width: 55%;
+  }
 
   &__title {
     @extend .band-info__title;
+    @include tablet {
+      @include no-margin-padding;
+      align-self: center;
+      white-space: nowrap;
+      font-size: 1.8rem;
+    }
+    @include desktop {
+      font-size: 2.5rem;
+    }
   }
-
   &__icons {
     @include flexbox-settings(space-between, center);
     width: 70%;
+    @include tablet {
+      width: 37.5%;
+    }
   }
   &__img {
+    @include flexbox-settings(space-between, center);
     min-width: 2.4rem;
+    @include tablet {
+      min-width: 1rem;
+    }
     &-sm {
+      @include flexbox-settings(space-between, center);
       min-width: 1.5rem;
+      @include tablet {
+        min-width: 0.5rem;
+      }
     }
   }
 }
 
+.mgt-info {
+  box-sizing: border-box;
+  @include tablet {
+    @include flexbox-settings(space-between, flex-start);
+    flex-flow: row nowrap;
+    width: 100%;
+  }
+ 
+}
+
 .mgt {
   @extend .contact-info;
+  width: 100%;
   &__container {
     margin: 1.4rem 0;
+  }
+  &--mid {
+    @include tablet {
+      margin-left: 1.25rem;
+    }
   }
   &__address {
     @include mobile-copy-font;
     @include no-margin-padding;
     // border: red solid 5px;
+    @include tablet {
+      @include desktop-copy;
+    }
+    @include desktop {
+      font-size: 1rem;
+      line-height: 1.8rem;
+    }
   }
   &__name {
     @extend .mgt__address;
     font-weight: 600;
+    @include tablet {
+      @include desktop-copy;
+      font-weight: 600;
+    }
+    @include desktop {
+      font-size: 1rem;
+      line-height: 1.8rem;
+    }
   }
   &__email {
     @extend .mgt__container;
     @include mobile-copy-font;
     text-decoration: none;
     color: $pry-color-light;
+    @include tablet {
+      @include desktop-copy;
+    }
+    @include desktop {
+      font-size: 1rem;
+      line-height: 1.8rem;
+    }
   }
 }
 .copyright {
   font-size: 0.9rem;
+  padding-bottom: 1rem;
+  @include desktop {
+    font-size: 1rem;
+  }
 }

@@ -1,7 +1,8 @@
 @use "./colors" as *;
 @use "./mixins" as *;
 
+
 body {
-    color: $pry-color-light;
- @include no-margin-padding;
+  color: $pry-color-light;
+  @include no-margin-padding;
 }
