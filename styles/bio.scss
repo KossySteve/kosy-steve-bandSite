@@ -312,7 +312,6 @@
     flex-flow: row nowrap;
     width: 100%;
   }
- 
 }
 
 .mgt {
@@ -329,7 +328,6 @@
   &__address {
     @include mobile-copy-font;
     @include no-margin-padding;
-    // border: red solid 5px;
     @include tablet {
       @include desktop-copy;
     }
