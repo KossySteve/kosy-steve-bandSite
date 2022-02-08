@@ -103,7 +103,7 @@
     padding-left: 1rem;
 
     @include tablet {
-      @include desktop-section-header-font;
+      font-size: 3.2rem;
       padding-left: 3rem;
     }
     @include desktop {
@@ -160,13 +160,22 @@
   &__text {
     padding: 1rem 0 0;
     margin: 0;
-    @include mobile-copy-font {
-      font-weight: 600;
-      font-size: 1rem;
-      line-height: 1.8rem;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    @include tablet {
+      font-size: 1.1rem;
     }
     @include desktop {
       @include desktop-subheader-font;
+    }
+    &--author {
+      @include tablet {
+        font-size: 0.95rem;
+      }
+      @include desktop {
+        font-size: 1.2rem;
+      }
     }
   }
 }
@@ -249,9 +258,8 @@
       right: 2.5rem;
     }
     @include desktop {
-      position: absolute;
-      bottom: 21.5rem;
-      right: 10rem;
+      bottom: 22.2rem;
+      right: 10.2rem;
     }
   }
 }
@@ -267,7 +275,12 @@
   @include tablet {
     @include flexbox-settings(space-between, center);
     flex-flow: row nowrap;
-    width: 55%;
+    width: 52.5%;
+  }
+  @include desktop {
+    @include flexbox-settings(space-between, center);
+    flex-flow: row nowrap;
+    width: 29rem;
   }
 
   &__title {
@@ -276,17 +289,20 @@
       @include no-margin-padding;
       align-self: center;
       white-space: nowrap;
-      font-size: 1.8rem;
+      font-size: 1.3rem;
     }
     @include desktop {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
     }
   }
   &__icons {
     @include flexbox-settings(space-between, center);
     width: 70%;
     @include tablet {
-      width: 37.5%;
+      width: 34.5%;
+    }
+    @include desktop {
+      width: 30.5%;
     }
   }
   &__img {
@@ -295,11 +311,17 @@
     @include tablet {
       min-width: 1rem;
     }
+    @include desktop {
+      min-width: 2.2rem;
+    }
     &-sm {
       @include flexbox-settings(space-between, center);
       min-width: 1.5rem;
       @include tablet {
         min-width: 0.5rem;
+      }
+      @include desktop {
+        min-width: 1.5rem;
       }
     }
   }
@@ -308,7 +330,7 @@
 .mgt-info {
   box-sizing: border-box;
   @include tablet {
-    @include flexbox-settings(space-between, flex-start);
+    @include flexbox-settings(flex-start, flex-start);
     flex-flow: row nowrap;
     width: 100%;
   }
@@ -317,12 +339,18 @@
 .mgt {
   @extend .contact-info;
   width: 100%;
+  @include desktop {
+    width: 19rem;
+  }
   &__container {
     margin: 1.4rem 0;
   }
   &--mid {
     @include tablet {
       margin-left: 1.25rem;
+    }
+    @include desktop {
+    margin-left: 1.25rem;
     }
   }
   &__address {
