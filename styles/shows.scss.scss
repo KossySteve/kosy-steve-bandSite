@@ -236,56 +236,6 @@
     @extend .band-info__img;
   }
 }
-.form-section {
-  @extend .band-info;
-  border: red 1px solid;
-}
-.form-container {
-  border: blue 1px solid;
-  @include flexbox-settings(center, space-around);
-  box-sizing: border-box;
-}
-
-.form {
-  width: 100%;
-  padding: 2rem 0;
-  @include flexbox-settings(center, flex-start);
-  flex-direction: column;
-  color: black;
-}
-
-.form__input {
-  width: 100%;
-  margin: 1rem 0;
-  @include flexbox-settings(center, space-around);
-  padding: 0.8rem;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.img-frame {
-  margin: 2rem 2rem;
-}
-.img {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-}
-
-.btn {
-  width: 100%;
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
 
 .footer-item {
   @extend .band-info;
@@ -400,7 +350,7 @@
       margin-left: 1.25rem;
     }
     @include desktop {
-      margin-left: 1.25rem;
+    margin-left: 1.25rem;
     }
   }
   &__address {

@@ -168,17 +168,17 @@ body {
   }
 }
 
-.band-info, .footer-item, .form-section, .photo-gallery {
+.band-info, .footer-item, .photo-gallery {
   padding: 0 1rem;
   color: #323232;
 }
 @media screen and (min-width: 768px) {
-  .band-info, .footer-item, .form-section, .photo-gallery {
+  .band-info, .footer-item, .photo-gallery {
     padding: 0 2.5rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .band-info, .footer-item, .form-section, .photo-gallery {
+  .band-info, .footer-item, .photo-gallery {
     padding: 0 10rem;
   }
 }
@@ -343,64 +343,6 @@ body {
     width: 31.5%;
   }
 }
-.form-section {
-  border: red 1px solid;
-}
-
-.form-container {
-  border: blue 1px solid;
-  display: flex;
-  justify-content: center;
-  align-items: space-around;
-  box-sizing: border-box;
-}
-
-.form {
-  width: 100%;
-  padding: 2rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  color: black;
-}
-
-.form__input {
-  width: 100%;
-  margin: 1rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: space-around;
-  padding: 0.8rem;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.img-frame {
-  margin: 2rem 2rem;
-}
-
-.img {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-}
-
-.btn {
-  width: 100%;
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
-
 .footer-item {
   background-color: #323232;
   color: #ffffff;
@@ -625,4 +567,4 @@ body {
   .copyright {
     font-size: 1rem;
   }
-}/*# sourceMappingURL=bio.css.map */
+}/*# sourceMappingURL=shows.scss.css.map */
