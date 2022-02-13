@@ -1,3 +1,5 @@
+@use "./colors" as *;
+@use "./typography" as *;
 
 @mixin background-settings($bg-image, $bg-size, $bg-repeat) {
   background-image: $bg-image;
