@@ -116,6 +116,100 @@ body {
     padding: 2.5rem 0;
   }
 }
+.nav__link:hover {
+  border-bottom: 4px solid red;
+  color: #ffffff;
+}
+
+.nav {
+  background-color: #323232;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+@media screen and (min-width: 768px) {
+  .nav {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+}
+.nav__logo, .footer-item__logo {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 1rem 0 0.02rem;
+  font-family: verdana;
+  font-weight: 700;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  font-weight: 200;
+  font-size: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .nav__logo, .footer-item__logo {
+    font-size: 1.5rem;
+    margin: 0 0 0 3rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .nav__logo, .footer-item__logo {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 1.5rem 10rem;
+  }
+}
+.nav__list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  .nav__list {
+    justify-content: space-evenly;
+    width: 22rem;
+  }
+}
+.nav__list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .nav__list-item {
+    justify-content: flex-start;
+  }
+}
+.nav__link {
+  padding: 1.5rem 0 0.8rem;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: verdana;
+  font-weight: 400;
+  line-height: 1.3rem;
+  font-size: 0.95rem;
+  font-size: 1.1rem;
+  color: #e1e1e1;
+  transition: font-weight 0.5s;
+  border-bottom: 4px solid #323232;
+}
+@media screen and (min-width: 768px) {
+  .nav__link {
+    padding: 2rem 0;
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .nav__link {
+    padding: 2.5rem 0;
+  }
+}
 .nav__link:hover, .nav__link:active {
   border-bottom: 4px solid #ffffff;
   font-weight: bold;
