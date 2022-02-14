@@ -1,0 +1,207 @@
+@use "./partials/global" as *;
+@use "./partials/colors" as *;
+@use "./partials/breakpoints" as *;
+@use "./partials/mixins" as *;
+@use "./partials/typography" as *;
+
+.hero {
+  @include background-settings(
+    url(../assets/images/hero-shows.jpg),
+    cover,
+    no-repeat
+  );
+  background-position: 50% 30%;
+  height: 24rem;
+  @include tablet {
+    height: 30.5rem;
+  }
+  @include desktop {
+    height: 50rem;
+  }
+
+  &__shade {
+    background-color: rgba(50, 50, 50, 0.5);
+    width: 100%;
+    height: 100%;
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+    @include flexbox-settings(space-evenly, flex-start);
+    flex-direction: column;
+    @include tablet {
+      padding: 2rem 3rem;
+    }
+    @include desktop {
+      @include flexbox-settings(center, flex-start);
+      padding: 0 10rem;
+    }
+  }
+  &__container {
+    @include desktop {
+      width: 100%;
+      @include flexbox-settings (space-between, center);
+
+    }
+  }
+  &__title {
+    @include no-margin-padding;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    @include tablet {
+      font-size: 3.7rem;
+      margin-bottom: 3rem;
+    }
+    @include desktop {
+      font-size: 5rem;
+   margin: 4.5rem 0;
+    }
+  }
+
+  &__subtitle {
+    @include no-margin-padding;
+    font-size: 1.3rem;
+    font-weight: 100;
+    @include tablet {
+      font-size: 1.5rem;
+    }
+    @include desktop {
+      font-size: 2rem;
+    }
+  }
+  &__audio {
+    width: 100%;
+    padding: 0.2rem 0;
+    @include tablet {
+      width: 24rem;
+    }
+    @include desktop {
+      width: 35rem;
+    }
+  }
+}
+
+.shows {
+  padding: 1.5rem 0;
+  color: $pry-color-dark;
+  @include tablet {
+    padding: 2rem 1.5rem;
+  }
+  @include desktop {
+    padding: 2rem 8.4rem;
+  }
+
+
+  &__container {
+    @include flexbox-settings(space-between, flex-start);
+    flex-direction: column;
+    border-bottom: 1px solid $pry-color-shade;
+    padding: 1rem 1.5rem;
+    @include tablet {
+      @include flexbox-settings(space-between, center);
+      flex-direction: row;
+    }
+     @include desktop {
+    width: 70%;
+    margin-left: auto;
+    padding: 0 4rem;
+  }
+  }
+  &__container:hover {
+    background-color: #fafafa;
+  }
+  &__container:active {
+    background-color: #e1e1e1;
+  }
+
+  &__title {
+    @include desktop-header-font;
+    @include no-margin-padding;
+    padding: 0 1.5rem;
+    @include desktop {
+      font-size: 3rem;
+      position:relative;
+      top: 4rem;
+    }
+  }
+
+  &__buy-btn {
+    width: 100%;
+    background-color: $pry-color-dark;
+    @include mobile-subheader-font;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    @include tablet {
+      font-size: 1rem;
+      white-space: nowrap;
+      margin: 0;
+      padding: 0.8rem;
+      width: 20%;
+    }
+  }
+  &__buy-btn--first {
+    @include tablet {
+      align-self: flex-end;
+    }
+    
+  }
+  &__buy-btn:hover {
+    background-color: $pry-color-shade;
+  }
+  &__info {
+    @include mobile-subheader-font;
+    font-weight: 400;
+    color: $pry-color-dark;
+    @include no-margin-padding;
+    @include tablet {
+      font-size: 1.2rem;
+    }
+  }
+  &__info--date {
+    @extend .shows__info;
+    font-size: 1.2rem;
+    font-weight: 600;
+    @include no-margin-padding;
+  }
+  &__info--title--all {
+    @include tablet {
+      display: none;
+    }
+  }
+  &__info--title {
+    @include tablet {
+      display: flex;
+      font-size: 1.2rem;
+    }
+    @include desktop {
+      padding-bottom: 1rem;
+    }
+  }
+
+  &__details {
+    @include mobile-copy-font;
+    color: $pry-color-shade;
+    font-weight: 500;
+    @include no-margin-padding;
+
+    @include tablet {
+      @include flexbox-settings(space-between, flex-start);
+      flex-flow: column wrap;
+      font-size: 0.9rem;
+      width: 70%;
+    }
+  }
+
+  &__container {
+    @include flexbox-settings(space-between, flex-start);
+    flex-direction: column;
+    border-bottom: 2px solid $pry-color-shade;
+    padding: 1rem 1.5rem;
+    @include tablet {
+      @include flexbox-settings(space-between, center);
+      flex-direction: row;
+    }
+  }
+}
