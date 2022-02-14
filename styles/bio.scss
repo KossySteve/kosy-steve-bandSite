@@ -4,7 +4,6 @@
 @use "./partials/mixins" as *;
 @use "./partials/typography" as *;
 
-
 .hero {
   @include background-settings(
     url(../assets/images/hero-bio.jpg),
@@ -42,9 +41,9 @@
 }
 
 .band-info {
- @include footer-setup;
+  @include footer-setup;
   &__title {
-  @include title-setup;
+    @include title-setup;
   }
   &__container {
     width: 100%;
@@ -148,53 +147,139 @@
     @extend .band-info__img;
   }
 }
-.form-section {
-  @include footer-setup;
-  border: red 1px solid;
-}
-.form-container {
-  border: blue 1px solid;
-  @include flexbox-settings(center, space-around);
-  box-sizing: border-box;
-}
 
 .form {
-  width: 100%;
-  padding: 2rem 0;
-  @include flexbox-settings(center, flex-start);
-  flex-direction: column;
-  color: black;
+  @include footer-setup;
+  @include no-margin-padding;
+  padding: 0.5rem 1rem;
+
+  &__container {
+    @include flexbox-settings(center, flex-start);
+    @include no-margin-padding;
+  }
+
+  &__row {
+    @include flexbox-settings(center, flex-start);
+    flex-flow: column nowrap;
+    box-sizing: border-box;
+  }
+  &__label {
+    @include mobile-subheader-font;
+    color: $pry-color-shade;
+    margin: 1rem 0;
+  }
+  &__input {
+    font-size: 2rem;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: $sec-color-shade;
+    border: 1px solid $sec-color-shade;
+    resize: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    @include tablet {
+      width: 70vw;
+    }
+    @include desktop {
+      width: 40vw;
+    }
+  }
+
+  &__input--txtAr {
+    @extend .form__input;
+    padding: 2rem;
+  }
+  .img-frame {
+    margin: 2rem;
+  }
+  .img {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .btn {
+    background-color: $pry-color-dark;
+    border-radius: 4px;
+    padding: 1rem 2rem;
+    color: $pry-color-light;
+    margin: 2rem 0;
+    width: 20rem;
+    font-size: 2rem;
+    @include tablet {
+      align-self: flex-end;
+      width: 15rem;
+      font-size: 1.5rem;
+    }
+    @include desktop {
+      width: 15rem;
+    }
+  }
+  &__title {
+    @include tablet {
+      font-size: 2.7rem;
+    }
+    
+  }
+  &__error-signal {
+    border: 4px solid red;
+  }
 }
 
-.form__input {
+.post-section {
   width: 100%;
-  margin: 1rem 0;
-  @include flexbox-settings(center, space-around);
-  padding: 0.8rem;
-  border-radius: 5px;
+  padding: 0 2rem;
+  @include no-margin-padding;
   box-sizing: border-box;
+  @include tablet {
+    width: 80%;
+    margin: auto;
+  }
+  @include desktop {
+    width: 45%;
+    margin: auto;
+    padding: 0 2rem;
+  }
+}
+.post-container {
+  @include flexbox-settings(space-between, space-around);
+  color: $pry-color-dark;
+  border-bottom: 1px solid $pry-color-shade;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
 }
 
-.img-frame {
-  margin: 2rem 2rem;
-}
-.img {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-}
 
-.btn {
-  width: 100%;
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+.post {
+  @include flexbox-settings(space-between, space-around);
+  flex-direction: column;
+  @include no-margin-padding;
 
-.btn:hover {
-  background-color: #45a049;
+  &__heading {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+  }
+  &__text {
+    font-size: 1.2rem;
+    padding-right: 2rem;
+  }
+
+  &__box {
+    @include flexbox-settings(space-between, center);
+  }
+
+  &__time {
+    color: $pry-color-shade;
+    font-size: 1.2rem;
+  }
+  &__image {
+    margin: 2rem 2rem;
+    padding: 1.1rem 1rem;
+    border-radius: 50%;
+    background-color: $pry-color-shade;
+    height: 2rem;
+    width: 6rem;
+  }
 }

@@ -6,7 +6,7 @@
 body {
   color: $pry-color-light;
   @include no-margin-padding;
-  @include mobile-copy-font;
+  font-family: 'Avenir';
 }
 
 .nav {
@@ -78,6 +78,9 @@ body {
     border-bottom: 4px solid white;
     color: $pry-color-light;
   }
+  &__link:link {
+    border-bottom: 4px solid $pry-color-dark;
+  }
 
 }
 
@@ -94,6 +97,7 @@ body {
   &__info {
     @include flexbox-settings(space-evenly, flex-start) {
       flex-flow: column nowrap;
+      margin-top: 2rem;
     }
   }
   &__container {
@@ -103,12 +107,12 @@ body {
     @extend .nav__logo;
     @include tablet {
       position: absolute;
-      bottom: 17.8rem;
+      bottom: 20rem;
       right: 2.5rem;
     }
     @include desktop {
-      bottom: 19.5rem;
-      right: 10.2rem;
+      bottom: 21.5rem;
+      right: 10rem;
     }
   }
 }
@@ -202,10 +206,10 @@ body {
     @include mobile-copy-font;
     @include no-margin-padding;
     @include tablet {
-      @include desktop-copy;
+      font-size: 1.2rem;
     }
     @include desktop {
-      font-size: 1rem;
+      font-size: 1.4rem;
       line-height: 1.8rem;
     }
   }
@@ -213,11 +217,11 @@ body {
     @extend .mgt__address;
     font-weight: 600;
     @include tablet {
-      @include desktop-copy;
+      font-size: 1.2rem;
       font-weight: 600;
     }
     @include desktop {
-      font-size: 1rem;
+      font-size: 1.2rem;
       line-height: 1.8rem;
     }
   }
@@ -230,7 +234,7 @@ body {
       @include desktop-copy;
     }
     @include desktop {
-      font-size: 1rem;
+      font-size: 1.2rem;
       line-height: 1.8rem;
     }
   }

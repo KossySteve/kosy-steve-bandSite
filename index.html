@@ -9,7 +9,7 @@
   <body>
     <header>
       <nav class="nav">
-        <span class="nav__logo" >BANDSITE</span>
+        <span class="nav__logo">BANDSITE</span>
         <ul class="nav__list">
           <li class="nav__list-item">
             <a class="nav__link" href="/">Biography</a>
@@ -145,37 +145,36 @@
         </div>
       </section>
 
-      <section class="form-section">
-        <div class="form-container">
-        <div class="img-frame">
-          <img
-            class="img"
-            src="./assets/images/Mohan-muruge.jpg"
-            alt="profile pic"
-          />
+      <section class="form">
+        <h1 class="form__title">Join the Conversation</h1>
+        <div class="form__container">
+          <div class="img-frame">
+            <img
+              class="img"
+              src="./assets/images/Mohan-muruge.jpg"
+              alt="profile picture of user"
+            />
+          </div>
+          <form>
+            <div class="form__row">
+              <label class="form__label" for="name">NAME</label>
+              <input class="form__input" type="text" id="name" />
+            </div>
+            <div class="form__row">
+              <label class="form__label" for="comment">COMMENT</label>
+              <textarea
+                class="form__input--txtAr"
+                name="comment"
+                id="comment"
+              ></textarea>
+            </div>
+            <div class="form__row">
+              <button class="btn" type="submit">COMMENT</button>
+            </div>
+          </form>
         </div>
-        <form class="form">
-          <label for="name">NAME</label>
-          <input
-            type="text"
-            id="name"
-            class="form__input"
-            name="firstname"
-            placeholder="Enter your name"
-          />
-
-          <label for="comment">COMMENT</label>
-          <textarea
-            id="comment"
-            class="form__input"
-            name="comment"
-            placeholder="Add a new comment"
-          ></textarea>
-
-          <input class="btn" type="submit" value="Submit" />
-        </form>
-      </div>
       </section>
+    
     </main>
     <footer>
       <section class="footer-item">
@@ -250,5 +249,6 @@
         </div>
       </section>
     </footer>
+    <script src="/scripts/index-page.js"></script>
   </body>
 </html>
