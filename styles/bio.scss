@@ -185,7 +185,7 @@
     }
   }
 
-  &__input--txtAr {
+  &__textarea {
     @extend .form__input;
     padding: 2rem;
   }
@@ -220,7 +220,6 @@
     @include tablet {
       font-size: 2.7rem;
     }
-    
   }
   &__error-signal {
     border: 4px solid red;
@@ -250,7 +249,6 @@
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
-
 
 .post {
   @include flexbox-settings(space-between, space-around);
