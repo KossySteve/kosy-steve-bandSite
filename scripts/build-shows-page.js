@@ -1,4 +1,4 @@
-let concerts = [
+const concerts = [
   {
     date: "Mon Sept 06 2021",
     venue: "Ronald Lane",
@@ -30,71 +30,59 @@ let concerts = [
     location: "San Francisco, CA",
   },
 ];
-
-//function displayShows() {
 const mainEl = document.querySelector("main");
-const sectionEl = document.createElement("section");
-sectionEl.classList.add("shows");
+
 const headingEl = document.createElement("h2");
 headingEl.classList.add("shows__title");
 headingEl.innerText = "Shows";
-sectionEl.appendChild(headingEl);
-mainEl.appendChild(sectionEl);
 
+const sectionEl = document.createElement("section");
+mainEl.appendChild(sectionEl);
+sectionEl.classList.add("shows");
+sectionEl.appendChild(headingEl);
+
+function displayShows() {
+//creates rows for each show
 concerts.forEach((concert, index) => {
   const showContainerEl = document.createElement("div");
   showContainerEl.classList.add("shows__container");
   sectionEl.appendChild(showContainerEl);
+  //creates columns for (date, venue & location) for each show
   const keys = Object.keys(concert);
   keys.forEach((element) => {
     const showDetails = document.createElement("div");
     showDetails.classList.add("shows__details");
     showContainerEl.appendChild(showDetails);
     const paragraphEl1 = document.createElement("p");
-    const paragraphEl2 = document.createElement("p");
-
-    
-    if (element == "date") {
-      paragraphEl2.classList.add("shows__info--date");
-    } else {
-      paragraphEl2.classList.add("shows__info");
-    }
-
-    if (index === 0) {
-        paragraphEl1.classList.add("shows__info--title");
-    }
-    paragraphEl1.classList.add("shows__info--title--all");
     paragraphEl1.innerText = element.toUpperCase();
-    paragraphEl2.innerText = concert[element];
-
     showDetails.appendChild(paragraphEl1);
+
+    const paragraphEl2 = document.createElement("p");
+    paragraphEl2.innerText = concert[element];
     showDetails.appendChild(paragraphEl2);
+  //creates special styling for date column
+    element == "date" ? paragraphEl2.classList.add("shows__info--date") : paragraphEl2.classList.add("shows__info");
+    index === 0 ? paragraphEl1.classList.add("shows__info-title", "shows__info-title--all"): paragraphEl1.classList.add("shows__info-title--all");
   });
+ 
   const buttonEl = document.createElement("button");
-  buttonEl.innerText = "BUY TICKETS";
-  if (index === 0) {
-    buttonEl.classList.add("shows__buy-btn--first");
-  }
   buttonEl.classList.add("shows__buy-btn");
+  buttonEl.innerText = "BUY TICKETS";
+  if (index === 0) {buttonEl.classList.add("shows__buy-btn--first");}
   showContainerEl.appendChild(buttonEl);
+  
+  showContainerEl.addEventListener('click', ()=> {
+    removeHighlight();
+    showContainerEl.classList.toggle("highlight-row")
+  } )
 });
-//}
+}
 
-//const paragraphEl = document.createElement('p').classList.add('shows__info');
 
-// <!-- <div class="shows__container">
-//   <div class="shows__details">
-//     <p>DATE</p>
-//     <p class="shows__info--date">Mon Sept 06 2021</p>
-//   </div>
-//   <div class="shows__details">
-//     <p>VENUE</p>
-//     <p class="shows__info">Ronald Lane</p>
-//   </div>
-//   <div class="shows__details">
-//     <p>LOCATION</p>
-//     <p class="shows__info">San Francisco, CA</p>
-//   </div>
-//   <button class="shows__buy-btn">BUY TICKETS</button>
-// </div> -->
-// </section>
+function removeHighlight(){
+    //showContainerEl.classList.remove('highlight-row')
+    const shows = document.querySelectorAll(".shows__container");
+shows.forEach(show =>  show.classList.remove("highlight-row") );
+}
+
+displayShows();

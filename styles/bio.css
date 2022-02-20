@@ -692,6 +692,12 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
 }
+@media screen and (min-width: 768px) {
+  .form .img {
+    width: 4.3rem;
+    height: 4.3rem;
+  }
+}
 .form .btn {
   background-color: #323232;
   border-radius: 4px;
@@ -781,9 +787,14 @@ body {
 }
 .post__image {
   margin: 2rem 2rem;
-  padding: 1.1rem 1rem;
+  padding: 16px 16px;
   border-radius: 50%;
   background-color: #afafaf;
-  height: 2rem;
-  width: 6rem;
+  height: 32px;
+  width: 96px;
+}
+@media screen and (min-width: 768px) {
+  .post__image {
+    padding: 25px 25px;
+  }
 }/*# sourceMappingURL=bio.css.map */

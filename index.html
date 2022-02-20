@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./styles/bio.css" />
     <title>Bandsite</title>
   </head>
@@ -142,16 +143,11 @@
           </div>
         </div>
       </section>
-
       <section class="form">
         <h1 class="form__title">Join the Conversation</h1>
         <div class="form__container">
           <div class="img-frame">
-            <img
-              class="img"
-              src="./assets/images/Mohan-muruge.jpg"
-              alt="profile picture of user"
-            />
+            <img class="img" src="./assets/images/Mohan-muruge.jpg" alt="profile picture of user"/>
           </div>
           <form>
             <div class="form__row">
@@ -160,11 +156,7 @@
             </div>
             <div class="form__row">
               <label class="form__label" for="comment">COMMENT</label>
-              <textarea
-                class="form__textarea"
-                name="comment"
-                id="comment"
-              ></textarea>
+              <textarea class="form__textarea" name="comment" id="comment"></textarea>
             </div>
             <div class="form__row">
               <button class="btn" type="submit">COMMENT</button>
@@ -172,7 +164,6 @@
           </form>
         </div>
       </section>
-    
     </main>
     <footer>
       <section class="footer-item">
@@ -233,7 +224,7 @@
             </div>
           </div>
           <div class="footer-item__container">
-            <span class="footer-item__logo">BANDSITE</span>
+            <a href="/"><img src="/assets/logo/logo-bandsite.svg" class="footer-item__logo" alt="Bandsite Logo"></a>
             <p class="copyright">
               Copyright The Bees Knees © 2021 All Rights Reserved
             </p>

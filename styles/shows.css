@@ -553,7 +553,7 @@ body {
   }
 }
 .shows__buy-btn:hover {
-  background-color: #afafaf;
+  background-color: #616060;
 }
 .shows__info, .shows__info--date {
   font-family: "Avenir";
@@ -577,18 +577,18 @@ body {
   padding: 0;
 }
 @media screen and (min-width: 768px) {
-  .shows__info--title--all {
+  .shows__info-title--all {
     display: none;
   }
 }
 @media screen and (min-width: 768px) {
-  .shows__info--title {
+  .shows__info-title {
     display: flex;
     font-size: 1.2rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .shows__info--title {
+  .shows__info-title {
     padding-bottom: 1rem;
   }
 }
@@ -627,4 +627,7 @@ body {
     align-items: center;
     flex-direction: row;
   }
+}
+.shows .highlight-row {
+  background-color: #e1e1e1;
 }/*# sourceMappingURL=shows.css.map */

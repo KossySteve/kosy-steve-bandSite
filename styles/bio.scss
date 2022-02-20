@@ -197,6 +197,10 @@
     height: 3.5rem;
     border-radius: 50%;
     object-fit: cover;
+    @include tablet {
+      width: 4.3rem;
+      height: 4.3rem;
+    }
   }
 
   .btn {
@@ -274,10 +278,13 @@
   }
   &__image {
     margin: 2rem 2rem;
-    padding: 1.1rem 1rem;
+    padding: 16px 16px;
     border-radius: 50%;
     background-color: $pry-color-shade;
-    height: 2rem;
-    width: 6rem;
+    height: 32px;
+    width: 96px;
+    @include tablet {
+      padding: 25px 25px;
+    }
   }
 }

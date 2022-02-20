@@ -38,8 +38,7 @@
   &__container {
     @include desktop {
       width: 100%;
-      @include flexbox-settings (space-between, center);
-
+      @include flexbox-settings(space-between, center);
     }
   }
   &__title {
@@ -52,7 +51,7 @@
     }
     @include desktop {
       font-size: 5rem;
-   margin: 4.5rem 0;
+      margin: 4.5rem 0;
     }
   }
 
@@ -78,7 +77,6 @@
     }
   }
 }
-
 .shows {
   padding: 1.5rem 0;
   color: $pry-color-dark;
@@ -88,8 +86,6 @@
   @include desktop {
     padding: 2rem 8.4rem;
   }
-
-
   &__container {
     @include flexbox-settings(space-between, flex-start);
     flex-direction: column;
@@ -99,11 +95,11 @@
       @include flexbox-settings(space-between, center);
       flex-direction: row;
     }
-     @include desktop {
-    width: 70%;
-    margin-left: auto;
-    padding: 0 4rem;
-  }
+    @include desktop {
+      width: 70%;
+      margin-left: auto;
+      padding: 0 4rem;
+    }
   }
   &__container:hover {
     background-color: #fafafa;
@@ -118,7 +114,7 @@
     padding: 0 1.5rem;
     @include desktop {
       font-size: 3rem;
-      position:relative;
+      position: relative;
       top: 4rem;
     }
   }
@@ -145,10 +141,9 @@
     @include tablet {
       align-self: flex-end;
     }
-    
   }
   &__buy-btn:hover {
-    background-color: $pry-color-shade;
+    background-color: rgb(97, 96, 96);
   }
   &__info {
     @include mobile-subheader-font;
@@ -165,12 +160,12 @@
     font-weight: 600;
     @include no-margin-padding;
   }
-  &__info--title--all {
+  &__info-title--all {
     @include tablet {
       display: none;
     }
   }
-  &__info--title {
+  &__info-title {
     @include tablet {
       display: flex;
       font-size: 1.2rem;
@@ -193,7 +188,7 @@
       width: 70%;
     }
   }
-
+  
   &__container {
     @include flexbox-settings(space-between, flex-start);
     flex-direction: column;
@@ -203,5 +198,8 @@
       @include flexbox-settings(space-between, center);
       flex-direction: row;
     }
+  }
+  .highlight-row {
+    background-color: #e1e1e1;
   }
 }
