@@ -1,35 +1,5 @@
-const concerts = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Tue Sept 21 2021",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-];
+const apiUrl = (end_point) =>`https://project-1-api.herokuapp.com/${end_point}?api_key=%3C%22api_key%22:%22c1cb7b58-9e6c-45c2-84e9-8c2d41c3ff6b%22%3E`;
+
 const mainEl = document.querySelector("main");
 
 const headingEl = document.createElement("h2");
@@ -42,47 +12,66 @@ sectionEl.classList.add("shows");
 sectionEl.appendChild(headingEl);
 
 function displayShows() {
-//creates rows for each show
-concerts.forEach((concert, index) => {
-  const showContainerEl = document.createElement("div");
-  showContainerEl.classList.add("shows__container");
-  sectionEl.appendChild(showContainerEl);
-  //creates columns for (date, venue & location) for each show
-  const keys = Object.keys(concert);
-  keys.forEach((element) => {
-    const showDetails = document.createElement("div");
-    showDetails.classList.add("shows__details");
-    showContainerEl.appendChild(showDetails);
-    const paragraphEl1 = document.createElement("p");
-    paragraphEl1.innerText = element.toUpperCase();
-    showDetails.appendChild(paragraphEl1);
-
-    const paragraphEl2 = document.createElement("p");
-    paragraphEl2.innerText = concert[element];
-    showDetails.appendChild(paragraphEl2);
-  //creates special styling for date column
-    element == "date" ? paragraphEl2.classList.add("shows__info--date") : paragraphEl2.classList.add("shows__info");
-    index === 0 ? paragraphEl1.classList.add("shows__info-title", "shows__info-title--all"): paragraphEl1.classList.add("shows__info-title--all");
-  });
- 
-  const buttonEl = document.createElement("button");
-  buttonEl.classList.add("shows__buy-btn");
-  buttonEl.innerText = "BUY TICKETS";
-  if (index === 0) {buttonEl.classList.add("shows__buy-btn--first");}
-  showContainerEl.appendChild(buttonEl);
-  
-  showContainerEl.addEventListener('click', ()=> {
-    removeHighlight();
-    showContainerEl.classList.toggle("highlight-row")
-  } )
-});
+  axios
+    .get(apiUrl("showdates"))
+    .then((response) => {
+      let concerts = response.data;
+      concerts.forEach(concert => concert.date  = new Date(parseInt(concert.date)).toDateString());
+      //creates rows 7 columnsfor each show
+      createShowTable(concerts);
+    })
+    .catch((error) => {
+      console.log("Unsuccessful response", error);
+      addErrorMessageToCommentGetRequest();
+    });
 }
 
+function createShowTable(concertsArr) {
+  concertsArr.forEach((concert, index) => {
+    const showContainerEl = document.createElement("div");
+    showContainerEl.classList.add("shows__container");
+    sectionEl.appendChild(showContainerEl);
+    //creates columns for (date, venue & location) for each show
+    const keys = Object.keys(concert);
+   
+    keys.forEach((key) => {
 
-function removeHighlight(){
-    //showContainerEl.classList.remove('highlight-row')
+     if (key != 'id') { //hiding id column
+        const showDetails = document.createElement("div");
+        showDetails.classList.add("shows__details");
+        showContainerEl.appendChild(showDetails);
+
+        const pEl1 = document.createElement("p");
+        pEl1.innerText = key.toUpperCase();
+        showDetails.appendChild(pEl1);
+
+        const pEl2 = document.createElement("p");
+        pEl2.innerText = concert[key];
+        showDetails.appendChild(pEl2);
+        //creates special styling for date column
+        key == "date" ? pEl2.classList.add("shows__info--date"): pEl2.classList.add("shows__info");
+        index === 0 ? pEl1.classList.add("shows__info-title", "shows__info-title--all"): pEl1.classList.add("shows__info-title--all");
+    }
+    });
+
+    const buttonEl = document.createElement("button");
+    buttonEl.classList.add("shows__buy-btn");
+    buttonEl.innerText = "BUY TICKETS";
+    if (index === 0) {
+      buttonEl.classList.add("shows__buy-btn--first");
+    }
+    showContainerEl.appendChild(buttonEl);
+
+    removeHighlight(showContainerEl);
+  });
+}
+
+function removeHighlight(element) {
+  element.addEventListener("click", () => {
     const shows = document.querySelectorAll(".shows__container");
-shows.forEach(show =>  show.classList.remove("highlight-row") );
+    shows.forEach((show) => show.classList.remove("highlight-row"));
+    element.classList.toggle("highlight-row");
+  });
 }
 
 displayShows();

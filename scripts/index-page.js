@@ -1,6 +1,6 @@
-//const API_HEADERS = {Content-Type: application/json};
+let headersList = {Accept: "*/*", "content-type": "application/json"};
 
-const apiUrl =(end_point)=> `https://project-1-api.herokuapp.com/${end_point}?api_key=%3C%22api_key%22:%22c1cb7b58-9e6c-45c2-84e9-8c2d41c3ff6b%22%3E`;
+const apiUrl = (end_point) =>`https://project-1-api.herokuapp.com/${end_point}?api_key=%3C%22api_key%22:%22c1cb7b58-9e6c-45c2-84e9-8c2d41c3ff6b%22%3E`;
 
 const mainEl = document.querySelector("main");
 const sectionEl = document.createElement("section");
@@ -9,49 +9,42 @@ const form = document.querySelector("form");
 const username = document.getElementById("name");
 const usercomment = document.getElementById("comment");
 
-
 let comments;
 let lastComment;
 
 function displayComments() {
   axios
-.get(apiUrl("comments"))
-.then(response => {
-   // console.log("Successful response", response);
-   comments = response.data;
-   //format timestamps
-    comments.forEach((comment)=> comment.timestamp = new Date(comment.timestamp).toISOString().slice(0, 10));
-  //  console.log(comments)
-     
-  //creates (divs, headings, paragraghs) to display each comment in comment obj
- createCommentSection(comments)
-  
-   
-})
-.catch(error => {
-    console.log("Unsuccessful response", error);
-   addErrorMessageToCommentGetRequest();
-})
+    .get(apiUrl("comments"))
+    .then((response) => {
+      comments = response.data.reverse();
+      //format timestamps
+      comments.forEach(comment => comment.timestamp = new Date(comment.timestamp).toISOString().slice(0, 10));
+      //creates (divs, headings, paragraghs) to display each comment in comment obj
+      createCommentSection(comments);
+    })
+    .catch((error) => {
+      console.log("Unsuccessful response", error);
+      addErrorMessageToCommentGetRequest();
+    });
 }
 
 function addErrorMessageToCommentGetRequest() {
   const errorMessageEl = document.createElement("p");
-  errorMessageEl.innerText = "Unable to load search results";
+  errorMessageEl.innerText = "Unable to load Previous Comments";
 
   mainEl.appendChild(errorMessageEl);
 }
 
 function displayComment(newComment) {
   //adds new comment to comments obj, displays it and reset the form
- // comments.unshift(newComment);
- axios.post(apiUrl(comments), lastComment, {headers: {'content-type': 'application/json'}})
-.then(function (response) {
-  console.log(response);
-})
-.catch(function (error) {
-  console.log(error);
-});
-
+  axios
+    .post(apiUrl("comments"), newComment, { headers: headersList })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   sectionEl.innerHTML = "";
   displayComments();
   form.reset();
@@ -62,20 +55,20 @@ function displayComment(newComment) {
 //   let today = new Date().toISOString().slice(0, 10);
 //   return today;
 // }
-const removeError = ()=> {
+const removeError = () => {
   alert("Please fill fields completely before submitting");
   usercomment.classList.remove("form__error-signal");
   username.classList.remove("form__error-signal");
-}
+};
 
 function displayError() {
   //display signals for erroneous inputs
   usercomment.classList.add("form__error-signal");
   username.classList.add("form__error-signal");
-  setTimeout(removeError, 1000) ;
+  setTimeout(removeError, 1000);
 }
 
-function createCommentSection(commentsArr){
+function createCommentSection(commentsArr) {
   commentsArr.forEach((comment) => {
     const containerEl = document.createElement("div");
     containerEl.classList.add("post-container");
@@ -111,16 +104,13 @@ function createCommentSection(commentsArr){
   mainEl.appendChild(sectionEl);
 }
 
-
-
 function manageComments() {
   displayComments();
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    lastComment = { name: e.target.name.value, comment: e.target.comment.value}
+    lastComment = {name: e.target.name.value, comment: e.target.comment.value};
     //validates form input
-    Object.values(lastComment).includes("") ? displayError() : displayComment(lastComment);
-  });
+    Object.values(lastComment).includes("") ? displayError() : displayComment(lastComment)});
 }
 
 manageComments();
