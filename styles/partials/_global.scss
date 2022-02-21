@@ -4,6 +4,7 @@
 @use "./typography" as *;
 
 body {
+  
   color: $pry-color-light;
   @include no-margin-padding;
   font-family: 'Avenir';
@@ -150,18 +151,19 @@ body {
   }
   &__img {
     @include flexbox-settings(space-between, center);
-    min-width: 2.4rem;
+    min-width: 2rem;
     @include tablet {
       min-width: 1rem;
     }
     @include desktop {
       min-width: 2.2rem;
     }
-    &-sm {
+    &--fb {
       @include flexbox-settings(space-between, center);
-      min-width: 1.5rem;
+      min-width: 1.2rem;
+      padding: 0 1rem;
       @include tablet {
-        min-width: 0.5rem;
+      min-width: 0.5rem;
       }
       @include desktop {
         min-width: 1.5rem;
@@ -199,6 +201,7 @@ body {
   &__address {
     @include mobile-copy-font;
     @include no-margin-padding;
+    white-space: nowrap;
     @include tablet {
       font-size: 1.2rem;
     }
@@ -212,6 +215,7 @@ body {
     font-weight: 600;
     @include tablet {
       font-size: 1.2rem;
+      white-space: nowrap;
       font-weight: 600;
     }
     @include desktop {
@@ -225,7 +229,7 @@ body {
     text-decoration: none;
     color: $pry-color-light;
     @include tablet {
-      @include desktop-copy;
+      @include tablet-copy;
     }
     @include desktop {
       font-size: 1.2rem;

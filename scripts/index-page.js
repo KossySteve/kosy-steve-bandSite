@@ -20,12 +20,39 @@ function displayComments() {
       //format timestamps
       comments.forEach(comment => comment.timestamp = new Date(comment.timestamp).toISOString().slice(0, 10));
       //creates (divs, headings, paragraghs) to display each comment in comment obj
+      sectionEl.innerHTML = "";
       createCommentSection(comments);
     })
     .catch((error) => {
       console.log("Unsuccessful response", error);
       addErrorMessageToCommentGetRequest();
     });
+}
+
+function likeComments(selectedComment){
+  axios
+  .put(apiUrl(`comments/${selectedComment.id}/like`), selectedComment, { headers: headersList })
+  .then((response) => {
+    console.log(response.data);
+   // sectionEl.innerHTML = "";
+    displayComments();
+  })
+  .catch((error) => {
+    console.log("Unsuccessful response", error);
+  });
+}
+
+function deleteComments(selectedComment){
+  axios
+  .delete(apiUrl(`comments/${selectedComment.id}`), selectedComment, { headers: headersList })
+  .then((response) => {
+    console.log(response.data);
+    //sectionEl.innerHTML = "";
+    displayComments();
+  })
+  .catch((error) => {
+    console.log("Unsuccessful response", error);
+  });
 }
 
 function addErrorMessageToCommentGetRequest() {
@@ -41,20 +68,16 @@ function displayComment(newComment) {
     .post(apiUrl("comments"), newComment, { headers: headersList })
     .then(function (response) {
       console.log(response);
+    
+      displayComments();
     })
     .catch(function (error) {
       console.log(error);
     });
-  sectionEl.innerHTML = "";
-  displayComments();
-  form.reset();
+    form.reset();
 }
 
-// function getCurrentDate() {
-//   //generates date for posted comments
-//   let today = new Date().toISOString().slice(0, 10);
-//   return today;
-// }
+
 const removeError = () => {
   alert("Please fill fields completely before submitting");
   usercomment.classList.remove("form__error-signal");
@@ -90,9 +113,22 @@ function createCommentSection(commentsArr) {
     paragraph2.classList.add("post__time");
     paragraph2.innerText = comment.timestamp;
 
+    const likeBtn = document.createElement('button');
+    likeBtn.classList.add('like-btn');
+    likeBtn.innerHTML= 'like';
+    likeBtn.addEventListener('click', ()=> likeComments(comment))
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.innerHTML= "delete";
+    deleteBtn.addEventListener('click', ()=> deleteComments(comment))
+
     const boxEl = document.createElement("div");
     boxEl.classList.add("post__box");
     boxEl.appendChild(headingEl);
+    
+    boxEl.appendChild(likeBtn);
+    boxEl.appendChild(deleteBtn);
     boxEl.appendChild(paragraph2);
 
     const postEl = document.createElement("div");
@@ -100,9 +136,13 @@ function createCommentSection(commentsArr) {
     postEl.appendChild(boxEl);
     postEl.appendChild(paragraph1);
     containerEl.appendChild(postEl);
+
+  
+
   });
   mainEl.appendChild(sectionEl);
 }
+
 
 function manageComments() {
   displayComments();

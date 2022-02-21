@@ -109,7 +109,7 @@
   }
 
   &__title {
-    @include desktop-header-font;
+    @include title-setup;
     @include no-margin-padding;
     padding: 0 1.5rem;
     @include desktop {

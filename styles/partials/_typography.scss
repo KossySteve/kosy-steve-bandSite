@@ -53,7 +53,7 @@
     @content;
 }
 
-@mixin desktop-header-font {
+@mixin tablet-header-font {
     font-family: 'Avenir';
     font-weight: 700;
     line-height: 4rem;
@@ -61,11 +61,43 @@
     @content;
 }
 
-@mixin desktop-section-header-font {
+@mixin desktop-header-font {
+    font-family: 'Avenir';
+    font-weight: 700;
+    line-height: 4rem;
+    font-size: 2.5rem;
+    @content;
+}
+
+@mixin tablet-section-header-font {
     font-family: 'Avenir';
     font-weight: 700;
     line-height: 2.75rem;
     font-size: 2rem;
+    @content;
+}
+
+@mixin tablet-subheader-font {
+    font-family: 'Avenir';
+    font-weight: 600;
+    line-height: 2rem;
+    font-size: 1.4rem;
+    @content;
+}
+
+@mixin tablet-copy {
+    font-family: 'Avenir';
+    font-weight: 400;
+    line-height: 1.25rem;
+    font-size: 0.9rem;
+    @content;
+}
+
+@mixin tablet-label-buttons {
+    font-family: 'Avenir';
+    font-weight: 400;
+    line-height: 1.25rem;
+    font-size: 1rem;
     @content;
 }
 
@@ -76,22 +108,4 @@
     font-size: 1.4rem;
     @content;
 }
-
-@mixin desktop-copy {
-    font-family: 'Avenir';
-    font-weight: 400;
-    line-height: 1.25rem;
-    font-size: 0.8rem;
-    @content;
-}
-
-@mixin desktop-label-buttons {
-    font-family: 'Avenir';
-    font-weight: 400;
-    line-height: 1.25rem;
-    font-size: 1rem;
-    @content;
-}
-
-
 

@@ -94,7 +94,7 @@
   &__title {
     @include mobile-subheader-font;
     @include tablet {
-      @include desktop-subheader-font;
+      @include tablet-subheader-font;
     }
   }
   &__container {
@@ -108,7 +108,7 @@
     @include no-margin-padding;
     @include tablet {
       @include flexbox-settings(space-between, center);
-      @include desktop-copy;
+      @include tablet-copy;
       width: 48%;
     }
     @include desktop {

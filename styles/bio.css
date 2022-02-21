@@ -199,6 +199,9 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .social-media__title {
+    font-family: "Avenir";
+    font-weight: 700;
+    line-height: 4rem;
     font-size: 2.5rem;
     margin: 1rem 0;
   }
@@ -237,7 +240,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 2.4rem;
+  min-width: 2rem;
 }
 @media screen and (min-width: 768px) {
   .social-media__img {
@@ -249,19 +252,20 @@ body {
     min-width: 2.2rem;
   }
 }
-.social-media__img-sm {
+.social-media__img--fb {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 1.5rem;
+  min-width: 1.2rem;
+  padding: 0 1rem;
 }
 @media screen and (min-width: 768px) {
-  .social-media__img-sm {
+  .social-media__img--fb {
     min-width: 0.5rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .social-media__img-sm {
+  .social-media__img--fb {
     min-width: 1.5rem;
   }
 }
@@ -307,6 +311,7 @@ body {
   font-size: 0.95rem;
   margin: 0;
   padding: 0;
+  white-space: nowrap;
 }
 @media screen and (min-width: 768px) {
   .mgt__address, .mgt__name {
@@ -325,6 +330,7 @@ body {
 @media screen and (min-width: 768px) {
   .mgt__name {
     font-size: 1.2rem;
+    white-space: nowrap;
     font-weight: 600;
   }
 }
@@ -347,7 +353,7 @@ body {
     font-family: "Avenir";
     font-weight: 400;
     line-height: 1.25rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -445,6 +451,9 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .band-info__title {
+    font-family: "Avenir";
+    font-weight: 700;
+    line-height: 4rem;
     font-size: 2.5rem;
     margin: 1rem 0;
   }
@@ -546,7 +555,7 @@ body {
     font-family: "Avenir";
     font-weight: 400;
     line-height: 1.25rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     width: 48%;
   }
 }
@@ -591,6 +600,9 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .photo-gallery__title {
+    font-family: "Avenir";
+    font-weight: 700;
+    line-height: 4rem;
     font-size: 2.5rem;
     margin: 1rem 0;
   }

@@ -19,19 +19,19 @@
   margin: 0;
   padding: 0;
 }
-
+// media query for tablet view
 @mixin tablet {
   @media screen and (min-width: 768px) {
     @content;
   }
 }
-
+// media query for desktop view
 @mixin desktop {
   @media screen and (min-width: 1280px) {
     @content;
   }
 }
-
+//styling for footer containers
 @mixin footer-setup {
   padding: 0 1rem;
   color: $pry-color-dark;
@@ -42,17 +42,16 @@
     padding: 0 10rem;
   }
 }
-
-
+//styling for section title/headers
 @mixin title-setup {
   padding: 1.5rem 0 1rem;
   margin: 0;
   @include mobile-header-font;
   @include tablet {
-    @include desktop-header-font;
+    @include tablet-header-font;
   }
   @include desktop {
-    font-size: 2.5rem;
+    @include desktop-header-font;
     margin: 1rem 0;
   }
 }
