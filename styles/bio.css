@@ -757,7 +757,7 @@ body {
   .post-section {
     width: 45%;
     margin: auto;
-    padding: 0 2rem;
+    padding: 1rem 0 1rem 4rem;
   }
 }
 
@@ -767,7 +767,7 @@ body {
   align-items: space-around;
   color: #323232;
   border-bottom: 1px solid #afafaf;
-  padding: 1rem 0;
+  padding: 1rem 1rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
@@ -809,4 +809,25 @@ body {
   .post__image {
     padding: 25px 25px;
   }
+}
+
+.btn-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.like-btn, .delete-btn {
+  background-color: #323232;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 0.2rem;
+  border: 5px solid #323232;
+  margin-left: 0.1rem;
+}
+
+.delete-btn {
+  border-color: #b16363;
+  background-color: red;
+  margin-left: 0.5rem;
 }/*# sourceMappingURL=bio.css.map */

@@ -242,14 +242,14 @@
   @include desktop {
     width: 45%;
     margin: auto;
-    padding: 0 2rem;
+    padding: 1rem 0 1rem 4rem;
   }
 }
 .post-container {
   @include flexbox-settings(space-between, space-around);
   color: $pry-color-dark;
   border-bottom: 1px solid $pry-color-shade;
-  padding: 1rem 0;
+  padding: 1rem 1rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
@@ -287,4 +287,22 @@
       padding: 25px 25px;
     }
   }
+}
+
+.btn-box{
+  @include flexbox-settings(flex-end, center)
+}
+.like-btn {
+  background-color: $pry-color-dark;
+  color: $pry-color-light;
+  border-radius: 4px;
+  padding: 0.2rem;
+  border: 5px solid $pry-color-dark;
+  margin-left: 0.1rem;
+}
+.delete-btn {
+  @extend .like-btn;
+  border-color: rgb(177, 99, 99);
+  background-color: red;
+  margin-left: 0.5rem;
 }

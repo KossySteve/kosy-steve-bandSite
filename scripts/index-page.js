@@ -115,27 +115,34 @@ function createCommentSection(commentsArr) {
 
     const likeBtn = document.createElement('button');
     likeBtn.classList.add('like-btn');
-    likeBtn.innerHTML= 'like';
+    likeBtn.innerHTML= `<i class="fa-solid fa-thumbs-up"></i>`;
     likeBtn.addEventListener('click', ()=> likeComments(comment))
 
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-btn');
-    deleteBtn.innerHTML= "delete";
+    deleteBtn.innerHTML= `<i class="fa-solid fa-trash-can"></i>`;
     deleteBtn.addEventListener('click', ()=> deleteComments(comment))
 
     const boxEl = document.createElement("div");
     boxEl.classList.add("post__box");
     boxEl.appendChild(headingEl);
-    
-    boxEl.appendChild(likeBtn);
-    boxEl.appendChild(deleteBtn);
     boxEl.appendChild(paragraph2);
 
+    const btnBox = document.createElement("div");
+    btnBox.classList.add('btn-box')
+    btnBox.append(`${comment.likes} `)
+    btnBox.appendChild(likeBtn);
+    btnBox.appendChild(deleteBtn);
+    
+    
     const postEl = document.createElement("div");
     postEl.classList.add("post");
     postEl.appendChild(boxEl);
     postEl.appendChild(paragraph1);
+    postEl.appendChild(btnBox);
     containerEl.appendChild(postEl);
+
+    
 
   
 
