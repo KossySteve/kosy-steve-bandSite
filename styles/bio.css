@@ -811,22 +811,22 @@ body {
   }
 }
 
-.btn-box {
+.btn {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-
-.like-btn, .delete-btn {
+.btn__like, .btn__delete {
   background-color: #323232;
   color: #ffffff;
   border-radius: 4px;
   padding: 0.2rem;
   border: 5px solid #323232;
   margin-left: 0.1rem;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
-
-.delete-btn {
+.btn__delete {
   border-color: #b16363;
   background-color: red;
   margin-left: 0.5rem;

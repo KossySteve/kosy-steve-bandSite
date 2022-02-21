@@ -299,9 +299,10 @@
     padding: 0.2rem;
     border: 5px solid $pry-color-dark;
     margin-left: 0.1rem;
+    cursor: grab;
   }
   &__delete {
-    @extend .like-btn;
+    @extend .btn__like;
     border-color: rgb(177, 99, 99);
     background-color: red;
     margin-left: 0.5rem;
