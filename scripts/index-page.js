@@ -5,6 +5,7 @@ const apiUrl = (end_point) =>`https://project-1-api.herokuapp.com/${end_point}?a
 const mainEl = document.querySelector("main");
 const sectionEl = document.createElement("section");
 sectionEl.classList.add("post-section");
+
 const form = document.querySelector("form");
 const username = document.getElementById("name");
 const usercomment = document.getElementById("comment");
@@ -77,7 +78,6 @@ function displayComment(newComment) {
     form.reset();
 }
 
-
 const removeError = () => {
   alert("Please fill fields completely before submitting");
   usercomment.classList.remove("form__error-signal");
@@ -114,12 +114,12 @@ function createCommentSection(commentsArr) {
     paragraph2.innerText = comment.timestamp;
 
     const likeBtn = document.createElement('button');
-    likeBtn.classList.add('like-btn');
+    likeBtn.classList.add('btn__like');
     likeBtn.innerHTML= `<i class="fa-solid fa-thumbs-up"></i>`;
     likeBtn.addEventListener('click', ()=> likeComments(comment))
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('delete-btn');
+    deleteBtn.classList.add('btn__delete');
     deleteBtn.innerHTML= `<i class="fa-solid fa-trash-can"></i>`;
     deleteBtn.addEventListener('click', ()=> deleteComments(comment))
 
@@ -129,11 +129,10 @@ function createCommentSection(commentsArr) {
     boxEl.appendChild(paragraph2);
 
     const btnBox = document.createElement("div");
-    btnBox.classList.add('btn-box')
+    btnBox.classList.add('btn')
     btnBox.append(`${comment.likes} `)
     btnBox.appendChild(likeBtn);
     btnBox.appendChild(deleteBtn);
-    
     
     const postEl = document.createElement("div");
     postEl.classList.add("post");
@@ -141,15 +140,9 @@ function createCommentSection(commentsArr) {
     postEl.appendChild(paragraph1);
     postEl.appendChild(btnBox);
     containerEl.appendChild(postEl);
-
-    
-
-  
-
   });
   mainEl.appendChild(sectionEl);
 }
-
 
 function manageComments() {
   displayComments();

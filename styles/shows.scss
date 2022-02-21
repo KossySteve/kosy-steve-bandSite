@@ -188,7 +188,7 @@
       width: 70%;
     }
   }
-  
+
   &__container {
     @include flexbox-settings(space-between, flex-start);
     flex-direction: column;

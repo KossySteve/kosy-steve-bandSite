@@ -20,7 +20,7 @@
     font-weight: 400;
   }
 
-
+//styled fonts for mobile view
 @mixin mobile-header-font {
     font-family: 'Avenir';
     font-weight: 700;
@@ -53,6 +53,7 @@
     @content;
 }
 
+//styled fonts for tablet view
 @mixin tablet-header-font {
     font-family: 'Avenir';
     font-weight: 700;
@@ -101,6 +102,7 @@
     @content;
 }
 
+//styled fonts for desktop view
 @mixin desktop-subheader-font {
     font-family: 'Avenir';
     font-weight: 600;
