@@ -1,6 +1,6 @@
 # kosy-steve-bandSite
 
-This project is a video react app built with HTML/CSS, SASS, JAVASCRIPT. It shares posts and comments on post dynamically.
+This project is a front-end web app built with HTML/CSS, SASS, JAVASCRIPT. It shares posts and comments on post dynamically.
 ## Built With
 
 - HTML/CSS
