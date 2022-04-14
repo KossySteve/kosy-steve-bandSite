@@ -24,7 +24,7 @@ This front-end web app is equipped with the abilities to make post and comment o
 - E-mail: [kossyeze@gmail.com]
 - Github: [@KossySteve](https://github.com/KossySteve)
 - Twitter: [@EzeSteve3](https://twitter.com/EzeSteve3/)
-- Linkedin: [linkedin](https://www.linkedin.com/in/steve-ez-b090ba198/)
+- Linkedin: [linkedin](https://www.linkedin.com/in/kossy-steve/)
 
 
 ## 🤝 Contributing
