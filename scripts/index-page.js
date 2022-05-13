@@ -69,6 +69,7 @@ function displayComment(newComment) {
     .catch(function (error) {
       console.log(error);
     });
+   displayComments();
     form.reset();
 }
 
