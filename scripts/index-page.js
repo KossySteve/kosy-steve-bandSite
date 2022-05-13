@@ -85,7 +85,7 @@ function displayComment(newComment) {
     .catch(function (error) {
       console.log(error);
     });
-    displayComments();
+    location.reload();
     form.reset();
 }
 
