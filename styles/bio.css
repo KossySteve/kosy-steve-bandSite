@@ -381,7 +381,6 @@ body, header {
 }
 
 .hero {
-  border: solid red 3px;
   margin: 0;
   padding-top: 6rem;
 }
@@ -560,8 +559,7 @@ body, header {
 }
 
 .photo-gallery {
-  border: red solid 4px;
-  background-color: #fafafa;
+  background-color: rgb(204, 179, 179);
   margin: auto;
   margin: 0;
   padding: 0 1rem;
@@ -777,7 +775,6 @@ body, header {
   margin: 0;
   padding: 0;
   width: 80%;
-  border: pink solid 4px;
 }
 .post__heading {
   font-size: 1.2rem;
@@ -791,20 +788,18 @@ body, header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: pink solid 4px;
 }
 .post__time {
   color: #afafaf;
   font-size: 1.2rem;
 }
 .post__image-box {
-  border: blue solid 4px;
   width: 15%;
 }
 .post__image {
   margin: 0 auto;
   border-radius: 50%;
-  background-color: red;
+  background-color: grey;
   height: 10vw;
   width: 10vw;
 }
@@ -832,7 +827,7 @@ body, header {
   cursor: grab;
 }
 .btn__delete {
-  border-color: rgb(177, 99, 99);
-  background-color: red;
+  border-color: rgb(114, 7, 7);
+  background-color: rgb(114, 7, 7);
   margin-left: 0.5rem;
 }/*# sourceMappingURL=bio.css.map */

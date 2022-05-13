@@ -5,7 +5,6 @@
 @use "./partials/typography" as *;
 
 .hero {
-  border: solid red 3px;
   margin: 0;
   padding-top: 6rem;
   @include tablet {
@@ -16,15 +15,6 @@
     width: 100%;
   }
 
-  // &__shade {
-  //   //background-color: rgba(50, 50, 50, 0.5);
-  //   border: purple solid 5px;
-  //   @include no-margin-padding;
-  //   @include flexbox-settings(flex-start, center);
-  //   @include tablet {
-
-  //   }
-  // }
   &__title {
     @include no-margin-padding;
     @include mobile-header-font;
@@ -33,9 +23,9 @@
     left: 4vw;
 
     @include tablet {
-    font-size: 3.2rem;
-    top: 35vh;
-    left: 4vw;
+      font-size: 3.2rem;
+      top: 35vh;
+      left: 4vw;
     }
     @include desktop {
       font-size: 4rem;
@@ -123,8 +113,7 @@
 }
 
 .photo-gallery {
-  border: red solid 4px;
-  background-color: $sec-color-light;
+  background-color: rgb(204, 179, 179);
   margin: auto;
   @include footer-setup;
 
@@ -266,7 +255,6 @@
   flex-direction: column;
   @include no-margin-padding;
   width: 80%;
-  border: pink solid 4px;
 
   &__heading {
     font-size: 1.2rem;
@@ -279,7 +267,6 @@
 
   &__box {
     @include flexbox-settings(space-between, center);
-    border: pink solid 4px;
   }
 
   &__time {
@@ -287,15 +274,13 @@
     font-size: 1.2rem;
   }
   &__image-box {
-    //@include flexbox-settings(center, start);
-    border: blue solid 4px;
     width: 15%;
   }
   &__image {
     //padding: 16px 16px;
     margin: 0 auto;
     border-radius: 50%;
-    background-color: red;
+    background-color: grey;
     height: 10vw;
     width: 10vw;
     @include tablet {
@@ -319,8 +304,8 @@
   }
   &__delete {
     @extend .btn__like;
-    border-color: rgb(177, 99, 99);
-    background-color: red;
+    border-color: rgb(114, 7, 7);
+    background-color: rgb(114, 7, 7);
     margin-left: 0.5rem;
   }
 }
