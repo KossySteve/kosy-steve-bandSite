@@ -85,7 +85,7 @@ function displayComment(newComment) {
     .catch(function (error) {
       console.log(error);
     });
-    location.reload();
+  setTimeout(()=> displayComments(), 1000)
     form.reset();
 }
 
@@ -167,7 +167,6 @@ function manageComments() {
     lastComment = {name: e.target.name.value, comment: e.target.comment.value};
     //validates form input
     Object.values(lastComment).includes("") ? displayError() : displayComment(lastComment);
- 
   });
 }
 
