@@ -85,6 +85,7 @@ function displayComment(newComment) {
     .catch(function (error) {
       console.log(error);
     });
+    displayComments();
     form.reset();
 }
 
@@ -165,8 +166,8 @@ function manageComments() {
     e.preventDefault();
     lastComment = {name: e.target.name.value, comment: e.target.comment.value};
     //validates form input
-    Object.values(lastComment).includes("") ? displayError() : displayComment(lastComment)
-  displayComments();
+    Object.values(lastComment).includes("") ? displayError() : displayComment(lastComment);
+ 
   });
 }
 
