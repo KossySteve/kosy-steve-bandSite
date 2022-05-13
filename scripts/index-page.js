@@ -50,8 +50,6 @@ function likeComments(selectedComment){
   axios
   .put(apiUrl(`comments/${selectedComment.id}/like`), selectedComment, { headers: headersList })
   .then((response) => {
-    console.log(response.data);
-   // sectionEl.innerHTML = "";
     displayComments();
   })
   .catch((error) => {
@@ -63,8 +61,6 @@ function deleteComments(selectedComment){
   axios
   .delete(apiUrl(`comments/${selectedComment.id}`), selectedComment, { headers: headersList })
   .then((response) => {
-    console.log(response.data);
-    //sectionEl.innerHTML = "";
     displayComments();
   })
   .catch((error) => {
@@ -83,14 +79,13 @@ function displayComment(newComment) {
   //adds new comment to comments obj, displays it and reset the form
   axios
     .post(apiUrl("comments"), newComment, { headers: headersList })
-    .then(function (response) {
-      console.log(response);
-    
-      displayComments();
-    })
+     .then((response) => {
+    displayComments();
+  })
     .catch(function (error) {
       console.log(error);
     });
+   displayComments();
     form.reset();
 }
 
