@@ -5,37 +5,41 @@
 @use "./partials/typography" as *;
 
 .hero {
-  @include background-settings(
-    url(../assets/images/hero-bio.jpg),
-    cover,
-    no-repeat
-  );
-  height: 19.5rem;
+  border: solid red 3px;
+  margin: 0;
+  padding-top: 6rem;
   @include tablet {
-    height: 30.5rem;
-  }
-  @include desktop {
-    height: 50rem;
+    padding-top: 5rem;
   }
 
-  &__shade {
-    background-color: rgba(50, 50, 50, 0.5);
+  &__video {
     width: 100%;
-    height: 100%;
-    @include flexbox-settings(flex-start, center);
   }
+
+  // &__shade {
+  //   //background-color: rgba(50, 50, 50, 0.5);
+  //   border: purple solid 5px;
+  //   @include no-margin-padding;
+  //   @include flexbox-settings(flex-start, center);
+  //   @include tablet {
+
+  //   }
+  // }
   &__title {
     @include no-margin-padding;
     @include mobile-header-font;
-    padding-left: 1rem;
+    position: absolute;
+    top: 30vh;
+    left: 4vw;
 
     @include tablet {
-      font-size: 3.2rem;
-      padding-left: 3rem;
+    font-size: 3.2rem;
+    top: 35vh;
+    left: 4vw;
     }
     @include desktop {
       font-size: 4rem;
-      padding-left: 12rem;
+      padding-left: 8rem;
     }
   }
 }
@@ -54,14 +58,14 @@
     }
   }
   &__frame {
-    height: 15.5rem;
+    // height: 15.5rem;
     width: 100%;
     @include tablet {
-      height: 19rem;
+      //  height: 25rem;
       margin: auto;
     }
     @include desktop {
-      height: 38rem;
+      // height: 38rem;
     }
   }
   &__img {
@@ -119,7 +123,9 @@
 }
 
 .photo-gallery {
+  border: red solid 4px;
   background-color: $sec-color-light;
+  margin: auto;
   @include footer-setup;
 
   &__title {
@@ -259,6 +265,8 @@
   @include flexbox-settings(space-between, space-around);
   flex-direction: column;
   @include no-margin-padding;
+  width: 80%;
+  border: pink solid 4px;
 
   &__heading {
     font-size: 1.2rem;
@@ -271,21 +279,29 @@
 
   &__box {
     @include flexbox-settings(space-between, center);
+    border: pink solid 4px;
   }
 
   &__time {
     color: $pry-color-shade;
     font-size: 1.2rem;
   }
+  &__image-box {
+    //@include flexbox-settings(center, start);
+    border: blue solid 4px;
+    width: 15%;
+  }
   &__image {
-    margin: 2rem 2rem;
-    padding: 16px 16px;
+    //padding: 16px 16px;
+    margin: 0 auto;
     border-radius: 50%;
-    background-color: $pry-color-shade;
-    height: 32px;
-    width: 96px;
+    background-color: red;
+    height: 10vw;
+    width: 10vw;
     @include tablet {
       padding: 25px 25px;
+      height: 2.3vw;
+      width: 2.5vw;
     }
   }
 }

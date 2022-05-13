@@ -33,6 +33,7 @@
 }
 //styling for footer containers
 @mixin footer-setup {
+  margin: 0;
   padding: 0 1rem;
   color: $pry-color-dark;
   @include tablet {

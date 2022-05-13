@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./styles/bio.css" />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link> 
     <script src="https://kit.fontawesome.com/7c74427b21.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
     <title>Bandsite</title>
   </head>
   <body>
     <header>
       <nav class="nav">
-        <a href="/"><img src="/assets/logo/logo-bandsite.svg" class="nav__logo" alt="Bandsite Logo"></a>
+        <a href="/"><img src="/assets/logo/logo-bandsite.png" class="nav__logo" alt="Bandsite Logo"></a>
         
         <ul class="nav__list">
           <li class="nav__list-item">
@@ -24,8 +26,14 @@
       </nav>
     </header>
     <section class="hero">
+      <div class="hero__video-box">
+        <video class="hero__video" playsinline autoplay muted loop poster="">
+          <source src="./assets/videos/concert.mp4" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <div class="hero__shade">
-        <h1 class="hero__title">The Bees Knees</h1>
+        <h1 class="hero__title">The Bee Rockers</h1>
       </div>
     </section>
     <main>
@@ -44,13 +52,13 @@
             to say ‘this needs to be better, back to the drawing board’”
           </p>
           <p class="band-info__text band-info__text--author">
-            - Bryan Teddy, lead vocalist of The Bees Knees
+            - Bryan Teddy, lead vocalist of The Bee Rockers
           </p>
           <article class="article">
-            <h3 class="article__title">The Bees Knees</h3>
+            <h3 class="article__title">The Bee Rockers</h3>
             <div class="article__container">
               <p class="article__text">
-                The Bees Knees is a pop rock band originating from San
+                The Bee Rockers is a pop rock band originating from San
                 Francisco, California. The band consists of lead vocalist Bryan
                 Teddy, guitarist Mack Tolkens, guitarist Andrew Green, bassist
                 Kent Zulkee and drummer Freddie Fischer. The band achieved its
@@ -68,7 +76,7 @@
                 and fastest up and coming acts of this century. Fans
                 affectionately refer to themselves as “The Hive” and are drawn
                 to their candid and authentic performances on stage. Looking
-                forward to touring in the future, The Bees Knees are currently
+                forward to touring in the future, The Bee Rockers are currently
                 recording their second studio album, looking to be released in
                 late 2021.
               </p>
@@ -199,11 +207,11 @@
             <div class="mgt">
               <div class="mgt__container">
                 <p class="mgt__name">Cam Adams</p>
-                <p class="mgt__name">The Bees Knees Management</p>
+                <p class="mgt__name">The Bee Rockers Management</p>
               </div>
               <p class="mgt__address">503 Broadway Penthouse,</p>
               <p class="mgt__address">New York, NY 10012, USA</p>
-              <a href="mailto: info@thebeesknees.com" class="mgt__email">info@thebeesknees.com</a>
+              <a href="mailto: kossyeze@gmail.com" class="mgt__email">info@thebeeRockers.com</a>
             </div>
             <div class="mgt mgt--mid">
               <div class="mgt__container">
@@ -212,7 +220,7 @@
               </div>
               <p class="mgt__address">Booking Agent for</p>
               <p class="mgt__address">US / South America / Japan</p>
-              <a href="mailto: pearl.gregg@limitlessag.com" class="mgt__email">pearl.gregg@limitlessag.com</a>
+              <a href="mailto: kossyeze@gmail.com" class="mgt__email">pearl.gregg@limitlessag.com</a>
             </div>
             <div class="mgt mgt--mid">
               <div class="mgt__container">
@@ -221,18 +229,19 @@
               </div>
               <p class="mgt__address">Booking Agent for</p>
               <p class="mgt__address">UK / EU / AU</p>
-              <a href="mailto: cwhyte@archentertainment.com" class="mgt__email">cwhyte@archentertainment.com</a>
+              <a href="mailto: kossyeze@gmail.com" class="mgt__email">cwhyte@archentertainment.com</a>
             </div>
           </div>
           <div class="footer-item__container">
-            <a href="/"><img src="/assets/logo/logo-bandsite.svg" class="footer-item__logo" alt="Bandsite Logo"></a>
+            <a href="/"><img src="/assets/logo/logo-bandsite.png" class="footer-item__logo" alt="Bandsite Logo"></a>
             <p class="copyright">
-              Copyright The Bees Knees © 2021 All Rights Reserved
+              Copyright The Bee Rockers © 2021 All Rights Reserved
             </p>
           </div>
         </div>
       </section>
     </footer>
+      
     <script src="/scripts/index-page.js"></script>
   </body>
 </html>

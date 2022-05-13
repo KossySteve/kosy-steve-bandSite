@@ -13,13 +13,29 @@ const usercomment = document.getElementById("comment");
 let comments;
 let lastComment;
 
+const intervals = [
+  { label: 'year', seconds: 31536000 },
+  { label: 'month', seconds: 2592000 },
+  { label: 'day', seconds: 86400 },
+  { label: 'hour', seconds: 3600 },
+  { label: 'minute', seconds: 60 },
+  { label: 'second', seconds: 1 }
+];
+
+function timeSince(date) {
+  const seconds = Math.floor((Date.now() - date) / 1000);
+  const interval = intervals.find(i => i.seconds < seconds);
+  const count = Math.floor(seconds / interval.seconds);
+  return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`;
+}
+
 function displayComments() {
   axios
     .get(apiUrl("comments"))
     .then((response) => {
       comments = response.data.reverse();
       //format timestamps
-      comments.forEach(comment => comment.timestamp = new Date(comment.timestamp).toISOString().slice(0, 10));
+      comments.forEach(comment => comment.timestamp = timeSince(comment.timestamp));
       //creates (divs, headings, paragraghs) to display each comment in comment obj
       sectionEl.innerHTML = "";
       createCommentSection(comments);
@@ -79,7 +95,8 @@ function displayComment(newComment) {
 }
 
 const removeError = () => {
-  alert("Please fill fields completely before submitting");
+  //alert("Please fill fields completely before submitting");
+  swal("Please fill fields completely before submitting");  
   usercomment.classList.remove("form__error-signal");
   username.classList.remove("form__error-signal");
 };
@@ -97,9 +114,13 @@ function createCommentSection(commentsArr) {
     containerEl.classList.add("post-container");
     sectionEl.appendChild(containerEl);
 
+    const imagBoxEl = document.createElement("div");
+    imagBoxEl.classList.add("post__image-box");
+    containerEl.appendChild(imagBoxEl);
+
     const imagEl = document.createElement("div");
     imagEl.classList.add("post__image");
-    containerEl.appendChild(imagEl);
+    imagBoxEl.appendChild(imagEl);
 
     const headingEl = document.createElement("h3");
     headingEl.classList.add("post__heading");

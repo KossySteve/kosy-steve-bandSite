@@ -17,16 +17,22 @@
   src: url("../assets/Font/Alternative/AvenirNextLTPro.ttf") format("truetype");
   font-weight: 400;
 }
-body {
+body, header {
   color: #ffffff;
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: "Avenir";
 }
 
 .nav {
-  background-color: #323232;
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
   width: 100%;
+  position: fixed;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +56,7 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .nav__logo, .footer-item__logo {
-    margin: 1.5rem 0 1.5rem 10rem;
+    margin-left: 10rem;
   }
 }
 .nav__list {
@@ -91,13 +97,13 @@ body {
   font-size: 1.1rem;
   color: #e1e1e1;
   transition: font-weight 0.5s;
-  border-bottom: 4px solid #323232;
+  border-bottom: 4px solid #000000;
 }
 @media screen and (min-width: 768px) {
   .nav__link {
     padding: 2rem 0;
     width: 100%;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -110,13 +116,14 @@ body {
   color: #ffffff;
 }
 .nav__link:link {
-  border-bottom: 4px solid #323232;
+  border-bottom: 4px solid #000000;
 }
 
 .footer-item {
+  margin: 0;
   padding: 0 1rem;
-  color: #323232;
-  background-color: #323232;
+  color: #000000;
+  background-color: #000000;
   color: #ffffff;
   padding-bottom: 2rem;
   padding-top: 1rem;
@@ -374,7 +381,7 @@ body {
 }
 
 .hero {
-  background-image: url(../assets/images/hero-shows.jpg);
+  background-image: url(../assets/images/Photo-gallery-7.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 30%;
@@ -473,7 +480,7 @@ body {
 
 .shows {
   padding: 1.5rem 0;
-  color: #323232;
+  color: #000000;
 }
 @media screen and (min-width: 768px) {
   .shows {
@@ -551,7 +558,7 @@ body {
 }
 .shows__buy-btn {
   width: 100%;
-  background-color: #323232;
+  background-color: #000000;
   font-family: "Avenir";
   font-weight: 400;
   line-height: 1.4rem;
@@ -578,7 +585,7 @@ body {
   }
 }
 .shows__buy-btn:hover {
-  background-color: #616060;
+  background-color: rgb(97, 96, 96);
 }
 .shows__info, .shows__info--date {
   font-family: "Avenir";
@@ -586,7 +593,7 @@ body {
   line-height: 1.4rem;
   font-size: 1.1rem;
   font-weight: 400;
-  color: #323232;
+  color: #000000;
   margin: 0;
   padding: 0;
 }
