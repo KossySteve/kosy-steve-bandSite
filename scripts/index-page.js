@@ -35,7 +35,7 @@ function displayComments() {
     .then((response) => {
      let comments = response.data.reverse();
       //format timestamps
-     // comments.forEach(comment => comment.timestamp = timeSince(comment.timestamp));
+    comments.forEach(comment => comment.timestamp = timeSince(comment.timestamp));
       //creates (divs, headings, paragraghs) to display each comment in comment obj
       sectionEl.innerHTML = "";
       console.log('Hello', comments);
