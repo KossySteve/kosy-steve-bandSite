@@ -80,15 +80,9 @@ function displayComment(newComment) {
   //adds new comment to comments obj, displays it and reset the form
   axios
     .post(apiUrl("comments"), newComment, { headers: headersList })
-<<<<<<< HEAD
-     .then((response) => {
-    displayComments();
-  })
-=======
     .then((response) => {
     displayComments();
     })
->>>>>>> sprint-3
     .catch(function (error) {
       console.log(error);
     });
