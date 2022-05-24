@@ -10,7 +10,7 @@ const form = document.querySelector("form");
 const username = document.getElementById("name");
 const usercomment = document.getElementById("comment");
 
-let comments;
+//let comments;
 let lastComment;
 
 const intervals = [
@@ -33,12 +33,13 @@ function displayComments() {
   axios
     .get(apiUrl("comments"))
     .then((response) => {
-      comments = response.data.reverse();
+     let comments = response.data.reverse();
       //format timestamps
-      comments.forEach(comment => comment.timestamp = timeSince(comment.timestamp));
+    comments.forEach(comment => comment.timestamp = comment.timestamp.toISOString().slice(0, 10));
       //creates (divs, headings, paragraghs) to display each comment in comment obj
       sectionEl.innerHTML = "";
-      createCommentSection(comments);
+      console.log('Hello', comments);
+      //createCommentSection(comments);
     })
     .catch((error) => {
       console.log("Unsuccessful response", error);
@@ -79,9 +80,15 @@ function displayComment(newComment) {
   //adds new comment to comments obj, displays it and reset the form
   axios
     .post(apiUrl("comments"), newComment, { headers: headersList })
+<<<<<<< HEAD
      .then((response) => {
     displayComments();
   })
+=======
+    .then((response) => {
+    displayComments();
+    })
+>>>>>>> sprint-3
     .catch(function (error) {
       console.log(error);
     });
@@ -127,7 +134,7 @@ function createCommentSection(commentsArr) {
 
     const paragraph2 = document.createElement("p");
     paragraph2.classList.add("post__time");
-    paragraph2.innerText = comment.timestamp;
+    paragraph2.innerText = timeSince(comment.timestamp);
 
     const likeBtn = document.createElement('button');
     likeBtn.classList.add('btn__like');
@@ -166,7 +173,8 @@ function manageComments() {
     e.preventDefault();
     lastComment = {name: e.target.name.value, comment: e.target.comment.value};
     //validates form input
-    Object.values(lastComment).includes("") ? displayError() : displayComment(lastComment)});
+    Object.values(lastComment).includes("") ? displayError() : displayComment(lastComment);
+  });
 }
 
 manageComments();
