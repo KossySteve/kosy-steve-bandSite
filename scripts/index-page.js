@@ -35,11 +35,10 @@ function displayComments() {
     .then((response) => {
      let comments = response.data.reverse();
       //format timestamps
-    comments.forEach(comment => comment.timestamp = comment.timestamp.toISOString().slice(0, 10));
+    //comments.forEach(comment => comment.timestamp = comment.timestamp.toISOString().slice(0, 10));
       //creates (divs, headings, paragraghs) to display each comment in comment obj
       sectionEl.innerHTML = "";
-      console.log('Hello', comments);
-      //createCommentSection(comments);
+      createCommentSection(comments);
     })
     .catch((error) => {
       console.log("Unsuccessful response", error);
@@ -127,7 +126,7 @@ function createCommentSection(commentsArr) {
 
     const paragraph2 = document.createElement("p");
     paragraph2.classList.add("post__time");
-    paragraph2.innerText = timeSince(comment.timestamp);
+    paragraph2.innerText = new Date(comment.timestamp).toISOString().slice(0, 10);
 
     const likeBtn = document.createElement('button');
     likeBtn.classList.add('btn__like');
