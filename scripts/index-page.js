@@ -10,7 +10,7 @@ const form = document.querySelector("form");
 const username = document.getElementById("name");
 const usercomment = document.getElementById("comment");
 
-let comments;
+//let comments;
 let lastComment;
 
 const intervals = [
@@ -33,12 +33,13 @@ function displayComments() {
   axios
     .get(apiUrl("comments"))
     .then((response) => {
-      comments = response.data.reverse();
+     let comments = response.data.reverse();
       //format timestamps
-      comments.forEach(comment => comment.timestamp = timeSince(comment.timestamp));
+     // comments.forEach(comment => comment.timestamp = timeSince(comment.timestamp));
       //creates (divs, headings, paragraghs) to display each comment in comment obj
       sectionEl.innerHTML = "";
-      createCommentSection(comments);
+      console.log('Hello', comments);
+      //createCommentSection(comments);
     })
     .catch((error) => {
       console.log("Unsuccessful response", error);
@@ -85,7 +86,6 @@ function displayComment(newComment) {
     .catch(function (error) {
       console.log(error);
     });
-  setTimeout(()=> displayComments(), 1000)
     form.reset();
 }
 
@@ -127,7 +127,7 @@ function createCommentSection(commentsArr) {
 
     const paragraph2 = document.createElement("p");
     paragraph2.classList.add("post__time");
-    paragraph2.innerText = comment.timestamp;
+    paragraph2.innerText = timeSince(comment.timestamp);
 
     const likeBtn = document.createElement('button');
     likeBtn.classList.add('btn__like');
