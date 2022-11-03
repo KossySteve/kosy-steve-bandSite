@@ -78,7 +78,7 @@ function addErrorMessageToCommentGetRequest() {
 function displayComment(newComment) {
   //adds new comment to comments obj, displays it and reset the form
   axios
-    .post(apiUrl("comments"), newComment, { headers: headersList })
+    .post(apiUrl("comments"), newComment)
     .then((response) => {
     displayComments();
     })
